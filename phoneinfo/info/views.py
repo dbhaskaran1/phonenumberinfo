@@ -10,10 +10,10 @@ from lib import phone_info
 def index(request):
     return HttpResponse("Hello, you've reached the info channel!")
 
-def phone_number(request, phone_number):
+def phone_number(request, phone_number, country_code = 'US'):
     if phone_number:
         rs = PhoneInfo.objects.filter(phone_number = phone_number)
-        number = phone_info.PhoneNumber(phone_number, 'US')
+        number = phone_info.PhoneNumber(phone_number, country_code)
         try:
             result = number.get_data()
             context = {
