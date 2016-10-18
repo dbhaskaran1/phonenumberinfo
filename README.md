@@ -10,3 +10,10 @@ An api accepting a phone number as input and providing information on that numbe
 * workon phoneinfo
 * pip install -r requirements
 * At this point your environment is all set to run tests.
+
+### Usage information
+* run ```python manage.py runserver inside the phonenumberinfo dir
+* you should be able to hit the API at http://localhost:8000
+* try 'http://localhost:8000/info/phone_number/6786786780' for querying a single number against the US market
+* try 'http://localhost:8000/info/phone_number/6786786780/IN' for querying a single number against country = India
+* try 'http://localhost:8000/info/phone_number/100' for querying a single number against the US market and you should see a result of "Valid number = False"
