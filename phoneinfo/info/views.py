@@ -3,12 +3,12 @@ from django.template import loader
 
 # Create your views here.
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from models import PhoneInfo
-from lib import phone_info
+from lib import phone_info, current_datetime
 
 def index(request):
-    return HttpResponse("Hello, you've reached the info channel!")
+    return JsonResponse({"message": "Hello, you've reached the index. No info here!"})
 
 def phone_number(request, phone_number, country_code = 'US'):
     if phone_number:
@@ -16,16 +16,20 @@ def phone_number(request, phone_number, country_code = 'US'):
         number = phone_info.PhoneNumber(phone_number, country_code)
         try:
             result = number.get_data()
-            context = {
-                'result': result
-            }
-            return render(request, 'info/index.html', context)
+            return JsonResponse(result)
         except Exception as e:
-            response = "Error occurred." + str(e)
-            return HttpResponse(response)
-
-
+            result = {}
+            result['error'] = "Error occurred." + str(e)
+            return JsonResponse(result)
     else:
-        response = "No number received and one is expected for sure."
-        return HttpResponse(response)
+        result = {}
+        result['error'] = "No number received and one is expected for sure."
+        return JsonResponse(result)
 
+def get_date(request):
+    result = current_datetime.get_current_date()
+    return JsonResponse(result)
+
+def get_time(request):
+    result = current_datetime.get_current_time()
+    return JsonResponse(result)
