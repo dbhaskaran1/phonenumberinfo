@@ -12,18 +12,16 @@ def index(request):
 
 def phone_number(request, phone_number):
     if phone_number:
-        response = "This is the number you are requesting info on %s" % (phone_number)
         rs = PhoneInfo.objects.filter(phone_number = phone_number)
         number = phone_info.PhoneNumber(phone_number, 'US')
         try:
             result = number.get_data()
             context = {
-                'value': phone_number,
-                'is_number_valid': result['is_number_valid']
+                'result': result
             }
             return render(request, 'info/index.html', context)
         except Exception as e:
-            response = "Bad number received." + str(e)
+            response = "Error occurred." + str(e)
             return HttpResponse(response)
 
 
