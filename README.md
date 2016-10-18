@@ -17,3 +17,5 @@ An api accepting a phone number as input and providing information on that numbe
 * try 'http://localhost:8000/info/phone_number/6786786780' for querying a single number against the US market
 * try 'http://localhost:8000/info/phone_number/6786786780/IN' for querying a single number against country = India
 * try 'http://localhost:8000/info/phone_number/100' for querying a single number against the US market and you should see a result of "Valid number = False"
+* try 'http://localhost:8000/info/current/time' for getting the current time
+* try 'http://localhost:8000/info/current/date' for getting the current date.
