@@ -1,0 +1,5 @@
+Django==1.9
+django-filter==0.15.3
+djangorestframework==3.4.7
+Markdown==2.6.7
+wheel==0.24.0
