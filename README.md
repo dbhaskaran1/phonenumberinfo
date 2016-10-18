@@ -18,9 +18,9 @@ An api accepting a phone number as input and providing information on that numbe
 
 ### Usage information
 * run ```python manage.py runserver``` inside the phonenumberinfo dir
-* you should be able to hit the API at http://localhost:8000
-* try 'http://localhost:8000/info/phone_number/6786786780' for querying a single number against the US market
-* try 'http://localhost:8000/info/phone_number/6786786780/IN' for querying a single number against country = India
-* try 'http://localhost:8000/info/phone_number/100' for querying a single number against the US market and you should see a result of "Valid number = False"
-* try 'http://localhost:8000/info/current/time' for getting the current time
-* try 'http://localhost:8000/info/current/date' for getting the current date.
+* you should be able to hit the API at http://localhost:8000/info and see ```{"message": "Hello, you've reached the index. No info here!"}```
+* try 'http://localhost:8000/info/phone_number/6786786780' for querying a single number against the US market. This produces ```{"is_number_possible": true, "is_number_valid": true, "number": "6786786780", "national_number": 6786786780, "country_code": 1, "carrier_data": ""}```
+* try 'http://localhost:8000/info/phone_number/6786786780/IN' for querying a single number against country = India. This produces ```{"is_number_possible": true, "is_number_valid": true, "number": "9884287789", "national_number": 9884287789, "country_code": 91, "carrier_data": "Vodafone"}```
+* try 'http://localhost:8000/info/phone_number/100' for querying a single number against the US market and you should see a result of "Valid number = False". Here's the json response ```{"is_number_possible": false, "is_number_valid": false, "number": "100", "national_number": 100, "country_code": 1, "carrier_data": ""}```
+* try 'http://localhost:8000/info/current/time' for getting the current time (```{"time": "13:31:14"}```)
+* try 'http://localhost:8000/info/current/date' for getting the current date (```{"date": "18:10:2016"}```)
