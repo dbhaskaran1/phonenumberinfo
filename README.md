@@ -11,6 +11,11 @@ An api accepting a phone number as input and providing information on that numbe
 * pip install -r requirements
 * At this point your environment is all set to run tests.
 
+### Features
+* Take a US number by default and provide info on its carrier, if it is a valid number, if it is a possible number and other number based data
+* Accept country code as an additional input and provide the  same information for international numbers
+* Provide a couple of end points that offer current date and current time
+
 ### Usage information
 * run ```python manage.py runserver``` inside the phonenumberinfo dir
 * you should be able to hit the API at http://localhost:8000
